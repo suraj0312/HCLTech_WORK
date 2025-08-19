@@ -350,13 +350,6 @@ async def main(repo_url_list : list) -> None:
       
       Repo URLs: {repo_url_list}
     """
-    
-    # task = f"""
-    #   Push all the changes.
-    #   repo url: '{repo_url}
-    #   cloned_repo_path: {cloned_repo_path}
-      
-    # """
     async for message in team.run_stream(task=task, output_task_messages=True):  # type: ignore
         if isinstance(message, TaskResult):
             print("Stop Reason:", message.stop_reason)
